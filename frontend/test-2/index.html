@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bộ trực quan hóa tương tác cho bài toán thuật toán hứng nước mưa kinh điển.">
+    <title>Test 2 - Trực Quan Hóa Hứng Nước Mưa</title>
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="top-bar">
+        <a href="../index.html" class="back-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width:16px; height:16px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+            Quay lại Bảng điều khiển
+        </a>
+    </header>
+
+    <main class="container">
+        <h1>Hứng Nước Mưa</h1>
+        <p class="subtitle">Bản đồ độ cao động và tính toán thể tích chất lỏng</p>
+
+        <section class="card-panel">
+            <div class="control-group">
+                <div class="input-wrapper">
+                    <label for="numbers" class="input-label">Bản đồ độ cao các cột</label>
+                    <input
+                        id="numbers"
+                        type="text"
+                        placeholder="Ví dụ: 0,1,0,2,1,0,1,3,2,1,2,1"
+                        value="3,0,2,0,4"
+                    >
+                    <span class="helper-text">Nhập các số nguyên không âm cách nhau bằng dấu phẩy (ví dụ: 0 đến 10)</span>
+                </div>
+                <button id="drawBtn" class="btn btn-draw">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 18px; height: 18px;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                    </svg>
+                    Vẽ trực quan hóa
+                </button>
+            </div>
+
+            <div id="message" class="message-banner"></div>
+
+            <div class="canvas-wrapper">
+                <canvas id="canvas" width="900" height="450"></canvas>
+            </div>
+
+            <div class="result-card-container">
+                <div class="result-metric">
+                    <span class="metric-label">Thể tích nước mưa tích tụ</span>
+                    <strong class="metric-value" id="result">0 m³</strong>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

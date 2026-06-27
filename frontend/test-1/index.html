@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bộ phân tích văn bản kéo thả sử dụng HTML5 và Web Worker chạy nền để đếm từ và tìm các từ xuất hiện nhiều nhất.">
+    <title>Test 1 - Phân Tích Văn Bản Kéo Thả</title>
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="top-bar">
+        <a href="../index.html" class="back-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width:16px; height:16px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+            Quay lại Bảng điều khiển
+        </a>
+    </header>
+
+    <main class="container">
+        <h1 id="title-analyzer">Phân Tích Văn Bản</h1>
+        <p class="subtitle">Trích xuất các từ duy nhất và các từ có tần suất xuất hiện cao nhất bằng Web Worker</p>
+
+        <section class="card-panel">
+            <div id="dropZone" class="drop-zone">
+                <div class="upload-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
+                    </svg>
+                </div>
+                <h3>Kéo & Thả tệp tin vào đây</h3>
+                <p class="text-muted">Chỉ hỗ trợ tệp tin .txt chứa các ký tự chữ cái chuẩn</p>
+                <div class="divider">
+                    <span>hoặc</span>
+                </div>
+                <label for="fileInput" class="btn">
+                    Chọn Tệp
+                </label>
+                <input type="file" id="fileInput" accept=".txt" hidden>
+            </div>
+
+            <div id="message" class="message-banner"></div>
+
+            <div id="result" class="result-section hidden">
+                <div class="result-header">
+                    <h2>Kết quả Phân Tích</h2>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">Tổng số từ</span>
+                        <strong class="stat-value" id="uniqueWords">0</strong>
+                    </div>
+                </div>
+
+                <h3>Top 3 từ xuất hiện nhiều nhất</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Thứ hạng</th>
+                                <th>Từ</th>
+                                <th>Số lần xuất hiện</th>
+                            </tr>
+                        </thead>
+                        <tbody id="topWords">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
